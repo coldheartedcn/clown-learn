@@ -1,0 +1,14 @@
+version = '0.1.0'
+description = 'spring boot的学习试验项目'
+
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'springboot'
+    version =  '0.1.0'
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
+}

@@ -1,0 +1,50 @@
+buildscript {
+    ext {
+        propdepsVersion = '0.0.9.RELEASE'
+        springBootVersion = '2.0.0.M6'
+    }
+
+    repositories {
+        maven { url 'http://repo.spring.io/plugins-release' }
+        maven { url 'https://repo.spring.io/libs-milestone' }
+    }
+
+    dependencies {
+        classpath "io.spring.gradle:propdeps-plugin:${propdepsVersion}"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+configure(subprojects) { project ->
+    group 'cn.coldhearted.learn'
+
+    apply plugin: 'propdeps'
+    apply plugin: 'propdeps-idea'
+    apply plugin: 'java'
+
+    repositories {
+        maven { url 'http://maven.tzit.cn/content/groups/public/'}
+        mavenCentral()
+        maven { url 'https://repo.spring.io/libs-milestone' }
+    }
+
+    compileJava {
+        sourceCompatibility = 1.9
+        targetCompatibility = 1.9
+        options.encoding = 'UTF-8'
+    }
+
+    compileTestJava {
+        sourceCompatibility = 1.9
+        targetCompatibility = 1.9
+        options.encoding = 'UTF-8'
+        options.compilerArgs += '-parameters'
+    }
+}
+
+project('jdk9') {
+    description = 'Java 9的试验学习'
+    version = '0.1.0-SNAPSHOT'
+
+
+}

@@ -1,0 +1,5 @@
+rootProject.name = 'clown-learn'
+
+include 'jdk9'
+include 'spring-framework'
+include 'spring-boot'
